@@ -1,0 +1,114 @@
+@use "/src/scss/_index.scss" as *;
+
+.meal {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #fefefef4;
+    padding: 3px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px 2px rgba($color: #000000, $alpha: 0.5);
+    text-align: center;
+    .meal-updated{
+        background-color: $badge-color;
+        color: white;
+        font-weight: bold;
+        padding: 0 5px;
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        border-radius: 5px;
+    }
+    .meal-new{
+        @extend .meal-updated;
+        color: #000000;
+        background-color: $theme-yellow;
+    }
+    .meal-price {
+        font-size: x-large;
+        font-weight: 700;
+        color: red;
+    }
+    img {
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+    }
+    //Desktop View Only
+    @include only-desktop-view {
+        hr {
+            display: none;
+        }
+        h4{
+            font-size: x-large;
+        }
+        .hover-card-overlay {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            color: white;
+            background-color: rgba($color: #000000, $alpha: 0);
+            top: 0;
+            right: 0;
+            transition: all 0.3s;
+            border-radius: 5px;
+        }
+        .hover-card-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: xx-large;
+            opacity: 0%;
+            
+            .icon {
+                color: #000000;
+                background-color: white;
+                padding: 10px;
+                border-radius: 50%;
+                &:nth-of-type(3){
+                    padding: 10px 12px;
+                }
+                &:hover {
+                    background-color: $theme-yellow;
+                    transform: scale(1.1);
+                    cursor: pointer;
+                }
+            }
+        }
+        &:hover {
+            .hover-card-overlay {
+                background-color: rgba($color: #000000, $alpha: 0.5);
+                .hover-card-icons {
+                    opacity: 100%;
+                }
+            }
+        }
+    }
+
+    //Responsive Mobile-Tablet
+    @include mobile-tablet-view {
+        h4{
+            font-size: large;
+        }
+        .hover-card-icons {
+            display: flex;
+            justify-content: space-evenly;
+            gap: 10px;
+            font-size: x-large;
+            .icon {
+                color: #000000;
+                padding: 5px;
+                border-radius: 50%;
+                &:hover {
+                    cursor: pointer;
+                    color: $theme-yellow;
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,10 @@
+@use "/src/scss/_index.scss" as *;
+
+footer {
+    @extend %fx-c;
+    grid-area: fotr;
+    h2 {
+        font-size: x-large;
+        letter-spacing: 2px;
+    }
+}

@@ -1,0 +1,20 @@
+@use '/src/scss/_index.scss' as *;
+
+.error404-page-container{
+    @extend %fx-cl;
+    grid-area: main;
+    margin-top: 35vh;
+    h1{
+        color: rgb(101, 99, 99);
+        text-align: center;
+    }
+    h3{
+        span{
+            padding: 0 5px;
+            background-color: $theme-yellow;
+            font-weight: bold;
+            font-size: x-large;
+            border-radius: 2px;
+        }
+    }
+}

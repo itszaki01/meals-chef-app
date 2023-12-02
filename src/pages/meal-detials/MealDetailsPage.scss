@@ -1,0 +1,100 @@
+@use "/src/scss/_index.scss" as *;
+
+.meal-details-page-container {
+    display: grid;
+    grid-area: main;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-areas:
+        ". . . . hdr hdr hdr hdr . . . ."
+        "ingr ingr ingr ingr ingr ingr crsl crsl crsl crsl crsl  crsl"
+        "mmls mmls mmls mmls mmls mmls mmls mmls mmls mmls mmls mmls";
+    @include mobile-tablet-view {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "hdr"
+            "crsl"
+            "ingr"
+            "mmls";
+    }
+
+    margin: 20px 10px;
+    h1 {
+        grid-area: hdr;
+        text-align: center;
+    }
+    .ingrediants {
+        grid-area: ingr;
+        padding: 10px;
+        h2 {
+            font-size: xx-large;
+            font-weight: bold;
+        }
+        ul {
+            text-indent: 15px;
+            li {
+                list-style: inside;
+                font-size: x-large;
+            }
+        }
+        button {
+            @extend %fx-c;
+            margin-top: 10px;
+            width: 100%;
+            height: 50px;
+            background-color: $theme-yellow;
+            border: none;
+            border-radius: 5px;
+            color: black;
+            font-weight: bold;
+            font-size: x-large;
+            box-shadow: 1px 2px 3px 2px rgba($color: #000000, $alpha: 0.3);
+            cursor: pointer;
+            animation: order-btn-animation 0.7s infinite linear;
+            span {
+                color: red;
+                text-indent: 10px;
+            }
+            &:hover {
+                color: white;
+            }
+            @keyframes order-btn-animation {
+                0% {
+                    transform: translateX(5px);
+                }
+                50% {
+                    transform: translateX(-5px);
+                }
+                100% {
+                    transform: translateX(5px);
+                }
+            }
+        }
+    }
+    .carousel {
+        grid-area: crsl;
+        margin: auto;
+        position: sticky;
+        width: 100%;
+        height: 100%;
+        .carousel-root {
+            border: 1px solid $theme-yellow;
+            @include only-desktop-view {
+                position: sticky;
+                top: 20px;
+            }
+        }
+        @include mobile-tablet-view {
+            width: 90vw;
+        }
+    }
+    .more-meals {
+        grid-area: mmls;
+        h1 {
+            color: #3e3d3f;
+        }
+    }
+}
+
+// .swal2-container{
+//     background-color: $dark-color;
+//   }

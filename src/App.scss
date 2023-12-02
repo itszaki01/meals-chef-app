@@ -1,0 +1,19 @@
+@use "./scss/_index.scss" as *;
+
+.app {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-areas: 
+    'navb navb navb navb navb navb navb navb navb navb navb navb'
+    '. main main main main main main main main main main .'
+    '. . . . fotr fotr fotr fotr . . . .';
+    grid-template-rows: $header-height $body-height $footer-height;
+    @include mobile-tablet-view{
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        'navb'
+        'main'
+        'fotr';
+    }
+}

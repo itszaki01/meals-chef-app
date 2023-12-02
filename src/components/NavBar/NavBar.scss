@@ -1,0 +1,89 @@
+@use "/src/scss/_index.scss" as *;
+@use 'sass:math';
+nav {
+    grid-area: navb;
+    background-color: $dark-color;
+    .nav-bar-container {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 percentage(math.div(1,12));
+        ul {
+            padding: 5px;
+            font-size: large;
+            color: white;
+            display: flex;
+            align-items: center;
+            height: $header-height;
+            gap: 20px;
+            // &::after {
+            //     content: "";
+            //     position: absolute;
+            //     width: 100%;
+            //     height: inherit;
+            //     left: 0;
+            //     background-color: $dark-color;
+            //     z-index: -1;
+            // }
+            li {
+                list-style: none;
+                &:first-of-type {
+                    color: $theme-yellow;
+                    img {
+                        @extend %fx-c;
+                        height: $header-height - 6px;
+                    }
+                    a {
+                        @extend %fx-c;
+                        &:hover {
+                            color: white;
+                        }
+                        p {
+                            letter-spacing: 2px;
+                            text-transform: uppercase;
+                            text-wrap: nowrap;
+                        }
+                    }
+                }
+                &:nth-of-type(2) {
+                    .add-new-btn {
+                        border: 1px solid $theme-yellow;
+                        color: white;
+                        padding: 2px 10px;
+                        border-radius: 5px;
+                        @include mobile-tablet-view {
+                            display: none;
+                        }
+                        &:hover {
+                            cursor: pointer;
+                            border-color: $theme-yellow;
+                            color: $theme-yellow;
+                        }
+                    }
+                    //Responsive
+                    .responsive-add-new-btn {
+                        position: relative;
+                        display: none;
+                        font-size: 50px;
+                        position: fixed;
+                        bottom: 10px;
+                        right: 30px;
+                        color: $dark-color;
+                        border-radius: 50%;
+                        box-shadow: 0px 0px 3px 3px $theme-yellow;
+                        z-index: 999;
+                        @include mobile-tablet-view {
+                            display: block;
+                        }
+                    }
+                }
+                a {
+                    text-decoration: none;
+                    color: inherit;
+                    &:hover {
+                        color: $theme-yellow;
+                    }
+                }
+            }
+        }
+    }
+}

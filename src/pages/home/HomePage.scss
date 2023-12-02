@@ -1,0 +1,12 @@
+@use '/src/scss/_index.scss' as *;
+
+.home-page-container{
+    grid-area: main;
+    margin: 20px 0;
+    @include mobile-tablet-view {
+        padding: 10px;
+    }
+    h1{
+        text-align: center;
+    }
+}
